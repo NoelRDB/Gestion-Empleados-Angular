@@ -1,0 +1,6 @@
+<div style="background-color: antiquewhite" class="container">
+  <div class="col">
+    <h1 style="text-align: center; margin-top: 30px;">{{titulo}}</h1>
+    <app-empleado-hijo *ngFor="let miEmpleado of empleados; let i = index" [empleadoDeLista]="miEmpleado" [indice]="i"/>
+    
+    
