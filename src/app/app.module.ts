@@ -14,6 +14,7 @@ import { QuienesSomosComponentComponent } from './quienes-somos-component/quiene
 import { ContactoComponentComponent } from './contacto-component/contacto-component.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ActualizaComponentComponent } from './actualiza-component/actualiza-component.component';
+import { ErrorPersonalizadoComponent } from './error-personalizado/error-personalizado.component';
 
 
 const appRoutes: Routes=[
@@ -23,6 +24,8 @@ const appRoutes: Routes=[
   {path:'quienes', component: QuienesSomosComponentComponent},
   {path:'contacto', component: ContactoComponentComponent},
   {path:'actualiza/:id', component: ActualizaComponentComponent},
+  // El path del error personalizado tiene que ir al final de los paths
+  {path:'**', component: ErrorPersonalizadoComponent}
 ];
 
 @NgModule({
@@ -34,7 +37,8 @@ const appRoutes: Routes=[
     ProyectosComponentComponent,
     QuienesSomosComponentComponent,
     ContactoComponentComponent,
-    ActualizaComponentComponent
+    ActualizaComponentComponent,
+    ErrorPersonalizadoComponent
   ],
   imports: [
     BrowserModule,
