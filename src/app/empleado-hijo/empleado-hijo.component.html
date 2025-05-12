@@ -2,11 +2,16 @@
     <div class="row">
       <div class="col">
         <div>
-            <a [routerLink]="['/actualiza',indice]"><strong>Empleado {{ indice+1 }}</strong><br></a>
-                    Nombre: {{ empleadoDeLista.nombre }}<br>
-                    Apellidos: {{ empleadoDeLista.apellido }}<br>
-                    Cargo: {{ empleadoDeLista.cargo }}<br>
-                    Salario: {{ empleadoDeLista.salario }}<br>
+
+          <strong>Empleado {{ indice+1 }}</strong>
+          <a [routerLink]="['/actualiza',indice]" [queryParams]="{accion:'1'}" style="padding-left: 10px;">Actualizar</a>
+          <br>
+          Nombre: {{ empleadoDeLista.nombre }}<br>
+          Apellidos: {{ empleadoDeLista.apellido }}<br>
+          Cargo: {{ empleadoDeLista.cargo }}<br>
+          Salario: {{ empleadoDeLista.salario }}<br>
+          
+           
         </div>
         <app-caracteristicas-empleado (caracteristicasEmpleado)="agregarCaracteristica($event)" ></app-caracteristicas-empleado>
     

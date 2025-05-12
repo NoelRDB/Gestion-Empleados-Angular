@@ -50,4 +50,10 @@ export class EmpleadosService
             + "Cargo: " + empleado.cargo + "\n"
             + "Salario: " + empleado.salario);
       }
+
+      eliminarEmpleado(indice: number)
+      {
+        this.listaEmpleados.splice(indice,1); // Así no me elimina dos de golpe
+        this.servicioVentanaEmergente.muestraMensaje("El Empleado ha sido eliminado con exito: ");
+      }
 }

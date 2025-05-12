@@ -60,8 +60,17 @@ export class ActualizaComponentComponent {
         this.cuadroSalario
       );
       this.empleadosServide.actualizarEmpleado(this.indice,nuevoEmpleado);
-      this.volverHome()
+      this.volverHome();
       }
+    }
+
+    eliminarEmpleado()
+    {
+
+      this.empleadosServide.eliminarEmpleado(this.indice);
+
+      this.volverHome();
+
     }
 
 }
