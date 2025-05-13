@@ -12,8 +12,4 @@ export class Empleado{
         this.cargo=miCargo;
         this.salario=miSalario;
     }
-
-    
-
-
 }

@@ -48,7 +48,6 @@ export class ProyectosComponentComponent {
         this.cuadroSalario
       );
       this.empleadosServide.agregarEmpleadoServicio(nuevoEmpleado);
-      this.volverHome()
       }
     }
 

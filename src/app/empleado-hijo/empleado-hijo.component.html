@@ -1,26 +1,43 @@
-<div class="container" style="text-align: center;">
-    <div class="row">
-      <div class="col">
-        <div>
-
-          <strong>Empleado {{ indice+1 }}</strong>
-          <a [routerLink]="['/actualiza',indice]" [queryParams]="{accion:'1'}" style="padding-left: 10px;">Actualizar</a>
-          <br>
-          Nombre: {{ empleadoDeLista.nombre }}<br>
-          Apellidos: {{ empleadoDeLista.apellido }}<br>
-          Cargo: {{ empleadoDeLista.cargo }}<br>
-          Salario: {{ empleadoDeLista.salario }}<br>
-          
-           
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body text-center">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="card-title mb-0">Empleado {{ indice + 1 }}</h5>
+            <a
+              class="btn btn-sm btn-outline-primary"
+              [routerLink]="['/actualiza', indice]"
+              [queryParams]="{ accion: '1' }"
+            >
+              Actualizar
+            </a>
+          </div>
+          <p class="card-text"><strong>Nombre:</strong> {{ empleadoDeLista.nombre }}</p>
+          <p class="card-text"><strong>Apellidos:</strong> {{ empleadoDeLista.apellido }}</p>
+          <p class="card-text"><strong>Cargo:</strong> {{ empleadoDeLista.cargo }}</p>
+          <p class="card-text"><strong>Salario:</strong> {{ empleadoDeLista.salario }}</p>
+          <hr />
+          <app-caracteristicas-empleado
+            class="mb-3"
+            (caracteristicasEmpleado)="agregarCaracteristica($event)"
+          ></app-caracteristicas-empleado>
+          <ul class="list-group list-group-flush">
+            <li
+              class="list-group-item"
+              *ngFor="let miCaracteristica of arrayCaracteristicas; let i = index"
+            >
+              {{ i }}. {{ miCaracteristica }}
+            </li>
+            <li
+              *ngIf="arrayCaracteristicas.length === 0"
+              class="list-group-item text-muted"
+            >
+              No hay características.
+            </li>
+          </ul>
         </div>
-        <app-caracteristicas-empleado (caracteristicasEmpleado)="agregarCaracteristica($event)" ></app-caracteristicas-empleado>
-    
-        <ul style="list-style: none;">
-          <li *ngFor = "let miCaracteristica of arrayCaracteristicas; let i = index">
-            {{miCaracteristica}}
-          </li>
-        </ul>
       </div>
     </div>
   </div>
-
+</div>

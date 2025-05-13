@@ -13,9 +13,17 @@ export class HomeComponentComponent {
   [x: string]: any;
   titulo = 'Listado de Empleados';
 
-  constructor(private miServicio: ServicioEmpleadosService, private empleadosServide: EmpleadosService)
-  {
-    this.empleados = this.empleadosServide.listaEmpleados;
+  constructor(private miServicio: ServicioEmpleadosService, private empleadosService: EmpleadosService)
+  {    
+    this.empleadosService.obtenerEmpleados().subscribe(
+      empleaditos=>{
+        console.log(empleaditos);
+
+        this.empleados = Object.values(empleaditos);
+
+        this.empleadosService.setEmpleados(this.empleados);
+      }
+    );
   }
 
   empleados: Empleado[] = [];
@@ -35,7 +43,7 @@ export class HomeComponentComponent {
     else{
     let nuevoEmpleado = new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario);
     //this.miServicio.muestraMensaje("Empleado añadido: " + nuevoEmpleado.nombre);
-    this.empleadosServide.agregarEmpleadoServicio(nuevoEmpleado);
+    this.empleadosService.agregarEmpleadoServicio(nuevoEmpleado);
     }
   }
 
